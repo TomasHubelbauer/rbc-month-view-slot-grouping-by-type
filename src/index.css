@@ -16,3 +16,15 @@ body {
 .rbc-calendar {
   flex: 1;
 }
+
+.rbc-event.first {
+  background: red;
+}
+
+.rbc-event.second {
+  background: green;
+}
+
+.rbc-event.third {
+  background: blue;
+}

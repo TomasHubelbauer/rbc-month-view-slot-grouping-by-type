@@ -58,3 +58,24 @@ broken.
 
 With a few lines we can demonstrate a week view calendar with a number of events
 and upon switching to the month view we see the preview + expansion link mode.
+
+---
+
+The next objective is to demonstrate slots of multiple kinds. We can get rid of
+the default `Event` type and provide our own to RBC as the component is generic.
+If we keep the names of the `start` and `end` fields, we do not need to provide
+accessor props for it, so we will do that to keep things simple.
+
+To render the slots differently based on the `kind` property, we need to implement
+a custom `eventWrapper` `component` prop field. Since the `children` passed in
+the `props` of that wrapper component are absolutely positioned (at least in the
+week view), we cannot just wrap them in another `div` with a certain background
+color, as it would end up stacked at the top of the week day column.
+
+Instead, we will make use of `React.Children.only` and adjust the props of the
+passed-in `div` to extend its `className`.
+
+We can now verify both the week view and the month view show correctly color-
+coded slots.
+
+---
