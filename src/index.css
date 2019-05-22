@@ -1,0 +1,18 @@
+html {
+  display: flex;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex: 1;
+}
+
+#root {
+  display: flex;
+  flex: 1;
+}
+
+.rbc-calendar {
+  flex: 1;
+}
