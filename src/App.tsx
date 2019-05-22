@@ -12,60 +12,61 @@ type MyEvent = {
 };
 
 export default class App extends React.Component {
+  private static readonly localizer = BigCalendar.momentLocalizer(moment);
+
+  private static readonly events: MyEvent[] = [
+    {
+      kind: 'first',
+      title: 'Three to four',
+      start: moment().startOf('day').set({ hour: 3 }).toDate(),
+      end: moment().startOf('day').set({ hour: 4 }).toDate(),
+    },
+    {
+      kind: 'second',
+      title: 'Five to six',
+      start: moment().startOf('day').set({ hour: 5 }).toDate(),
+      end: moment().startOf('day').set({ hour: 6 }).toDate(),
+    },
+    {
+      kind: 'third',
+      title: 'Seven to nine',
+      start: moment().startOf('day').set({ hour: 7 }).toDate(),
+      end: moment().startOf('day').set({ hour: 9 }).toDate(),
+    },
+    {
+      kind: 'first',
+      title: 'Ten to twelve',
+      start: moment().startOf('day').set({ hour: 10 }).toDate(),
+      end: moment().startOf('day').set({ hour: 12 }).toDate(),
+    },
+    {
+      kind: 'second',
+      title: 'Evening',
+      start: moment().startOf('day').set({ hour: 16 }).toDate(),
+      end: moment().startOf('day').set({ hour: 20 }).toDate(),
+    },
+    {
+      kind: 'third',
+      title: 'Night',
+      start: moment().startOf('day').set({ hour: 20 }).toDate(),
+      end: moment().endOf('day').toDate(),
+    },
+  ];
+
+  private static readonly components: Components<MyEvent> = {
+    eventWrapper: props => {
+      const child = Children.only(props.children) as ReactElement;
+      return cloneElement(child, { className: child.props.className + ' ' + props.event.kind });
+    },
+  };
+
   render() {
-    const localizer = BigCalendar.momentLocalizer(moment);
-    const events: MyEvent[] = [
-      {
-        kind: 'first',
-        title: 'Three to four',
-        start: moment().startOf('day').set({ hour: 3 }).toDate(),
-        end: moment().startOf('day').set({ hour: 4 }).toDate(),
-      },
-      {
-        kind: 'second',
-        title: 'Five to six',
-        start: moment().startOf('day').set({ hour: 5 }).toDate(),
-        end: moment().startOf('day').set({ hour: 6 }).toDate(),
-      },
-      {
-        kind: 'third',
-        title: 'Seven to nine',
-        start: moment().startOf('day').set({ hour: 7 }).toDate(),
-        end: moment().startOf('day').set({ hour: 9 }).toDate(),
-      },
-      {
-        kind: 'first',
-        title: 'Ten to twelve',
-        start: moment().startOf('day').set({ hour: 10 }).toDate(),
-        end: moment().startOf('day').set({ hour: 12 }).toDate(),
-      },
-      {
-        kind: 'second',
-        title: 'Evening',
-        start: moment().startOf('day').set({ hour: 16 }).toDate(),
-        end: moment().startOf('day').set({ hour: 20 }).toDate(),
-      },
-      {
-        kind: 'third',
-        title: 'Night',
-        start: moment().startOf('day').set({ hour: 20 }).toDate(),
-        end: moment().endOf('day').toDate(),
-      },
-    ];
-
-    const components: Components<MyEvent> = {
-      eventWrapper: props => {
-        const child = Children.only(props.children) as ReactElement;
-        return cloneElement(child, { className: child.props.className + ' ' + props.event.kind });
-      },
-    };
-
     return (
       <BigCalendar<MyEvent>
-        localizer={localizer}
-        events={events}
+        localizer={App.localizer}
+        events={App.events}
         defaultView="week"
-        components={components}
+        components={App.components}
       />
     );
   }
