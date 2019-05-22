@@ -1,5 +1,7 @@
 # React Big Calendar Month View Slot Grouping By Type
 
+[**Online demo**](https://tomashubelbauer.github.io/rbc-month-view-slot-grouping-by-type)
+
 For a project I am working on, I need to have an option to adjust RBC to display
 a different version of month view than it does by default. I am going to see if
 I can prototype a standalone solution to that before I attempt to integrate the
@@ -135,3 +137,7 @@ hide this link using other means.
 With all of the above done, we can now marvel at our creation:
 
 ![](final.png)
+
+The published artifacts can be found on GitHub Pages:
+
+[**Online demo**](https://tomashubelbauer.github.io/rbc-month-view-slot-grouping-by-type)

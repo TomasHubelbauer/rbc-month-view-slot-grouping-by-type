@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.8f0528cc.chunk.css",
-    "main.js": "/static/js/main.563a6ed7.chunk.js",
-    "main.js.map": "/static/js/main.563a6ed7.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/css/2.193a939a.chunk.css": "/static/css/2.193a939a.chunk.css",
-    "static/js/2.32083436.chunk.js": "/static/js/2.32083436.chunk.js",
-    "static/js/2.32083436.chunk.js.map": "/static/js/2.32083436.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.319360dada1f15226080dcbbc4fb8bf3.js": "/precache-manifest.319360dada1f15226080dcbbc4fb8bf3.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.193a939a.chunk.css.map": "/static/css/2.193a939a.chunk.css.map",
-    "static/css/main.8f0528cc.chunk.css.map": "/static/css/main.8f0528cc.chunk.css.map"
+    "main.css": "/rbc-month-view-slot-grouping-by-type/static/css/main.8f0528cc.chunk.css",
+    "main.js": "/rbc-month-view-slot-grouping-by-type/static/js/main.563a6ed7.chunk.js",
+    "main.js.map": "/rbc-month-view-slot-grouping-by-type/static/js/main.563a6ed7.chunk.js.map",
+    "runtime~main.js": "/rbc-month-view-slot-grouping-by-type/static/js/runtime~main.5b9d9a55.js",
+    "runtime~main.js.map": "/rbc-month-view-slot-grouping-by-type/static/js/runtime~main.5b9d9a55.js.map",
+    "static/css/2.193a939a.chunk.css": "/rbc-month-view-slot-grouping-by-type/static/css/2.193a939a.chunk.css",
+    "static/js/2.32083436.chunk.js": "/rbc-month-view-slot-grouping-by-type/static/js/2.32083436.chunk.js",
+    "static/js/2.32083436.chunk.js.map": "/rbc-month-view-slot-grouping-by-type/static/js/2.32083436.chunk.js.map",
+    "index.html": "/rbc-month-view-slot-grouping-by-type/index.html",
+    "precache-manifest.de1c668d6e2eaf99a11aab46be11189a.js": "/rbc-month-view-slot-grouping-by-type/precache-manifest.de1c668d6e2eaf99a11aab46be11189a.js",
+    "service-worker.js": "/rbc-month-view-slot-grouping-by-type/service-worker.js",
+    "static/css/2.193a939a.chunk.css.map": "/rbc-month-view-slot-grouping-by-type/static/css/2.193a939a.chunk.css.map",
+    "static/css/main.8f0528cc.chunk.css.map": "/rbc-month-view-slot-grouping-by-type/static/css/main.8f0528cc.chunk.css.map"
   }
 }
