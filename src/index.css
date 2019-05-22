@@ -6,6 +6,7 @@ html {
 body {
   display: flex;
   flex: 1;
+  font: normal 9pt sans-serif;
 }
 
 #root {
@@ -27,4 +28,42 @@ body {
 
 .rbc-event.third {
   background: blue;
+}
+
+/* Note that `body` here is needed to beat the RBC stylesheet selector specificity */
+body .rbc-show-more {
+  display: none;
+}
+
+.firsts::before {
+  background: red;
+  border-radius: 50%;
+  content: '';
+  display: inline-block;
+  height: 1ex;
+  margin-right: 1ex;
+  margin-bottom: .25ex;
+  width: 1ex;
+}
+
+.seconds::before {
+  background: green;
+  border-radius: 50%;
+  content: '';
+  display: inline-block;
+  height: 1ex;
+  margin-right: 1ex;
+  margin-bottom: .25ex;
+  width: 1ex;
+}
+
+.thirds::before {
+  background: blue;
+  border-radius: 50%;
+  content: '';
+  display: inline-block;
+  height: 1ex;
+  margin-right: 1ex;
+  margin-bottom: .25ex;
+  width: 1ex;
 }

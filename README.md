@@ -79,3 +79,59 @@ We can now verify both the week view and the month view show correctly color-
 coded slots.
 
 ---
+
+To start figuring out how the month view could be adapted to group the slots and
+display only one representative slot for each kind which has members, we will
+take a look at the RBC documentation.
+
+By that, I of course mean the RBC typings, as the actual RBC documentation for
+the `components` prop is rather… scarce:
+
+http://intljusticemission.github.io/react-big-calendar/examples/index.html#prop-components
+
+So what do we have in the `component` prop typings?
+
+https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react-big-calendar/index.d.ts#L134
+
+`event` and `eventWrapper` both deal with the individual slots. On top of that,
+the field `month` for month view specific overrides does not include anything
+which looks like it would be a component for the month view cell.
+
+We do have `eventContainerWrapper` there so let's figure out what that does.
+By cloning the sole child element and appending a marker class to its `className`
+prop, we are able to identity that in the week view, this is a `div` which
+encapsulates all the individual event wrappers in the day column.
+Unfortunately this component is never called for the month view.
+
+Applying the same technique (an extra, marker class) and querying the DOM with
+`document.querySelectorAll`, we find that `dateCellWrapper` is a component which
+gets called for each cell of the month view calendar. We can scope it to just it
+by nesting it in the `month` field of the `components` prop.
+
+Unfortunately the typings here lack this particular component underneath the
+`month` field so we have to enter `any`-territory.
+
+- [ ] Create a PR for `components`
+
+We also find that this particular component doesn't receive any `props` containing
+the models of the events to be displayed. It is merely a background cell which
+we can adjust, but the actual contents of the calendar are still handled by
+`event` and `eventWrapper` but not `eventContainerWrapper`.
+
+Our best bet here is to completely disable the events by overriding `eventWrapper`
+for month and returning `null` for each invocation. This will render the
+calendar empty and we can then adjust the `dateCellWrapper` implementation so it
+computes and materializes the representative events on the fly base on the calendar
+`events` prop.
+
+We also need to hide the *+X more* link, which luckily for us has a CSS class
+`rbc-show-more` so we can hide it using plain CSS with a selector with higher
+specificity than the one from RBC. We do not need to rely on extensibility points
+provided by RBC, which we already know it doesn't have enough of to enable us to
+hide this link using other means.
+
+---
+
+With all of the above done, we can now marvel at our creation:
+
+![](final.png)
